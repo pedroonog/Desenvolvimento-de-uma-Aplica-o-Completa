@@ -77,12 +77,6 @@ forge script script/Vault.t.sol:VaultDeploy --rpc-url \$RPC_URL --broadcast --ve
 
 ---
 
-## 📜 Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
----
-
 ## ✍️ Autor
 
 **Pedro Nogueira**  
