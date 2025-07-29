@@ -1,66 +1,89 @@
-## Foundry
+# ���️ Desenvolvimento de uma Aplicação Completa com Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Este repositório contém uma aplicação Web3 desenvolvida com [Foundry](https://book.getfoundry.sh/), utilizando contratos inteligentes escritos em Solidity, scripts de implantação automatizados e testes.
 
-Foundry consists of:
+## ��� Estrutura do Projeto
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```
+├── script/             # Scripts de implantação com Forge
+│   ├── Vault.t.sol     # Script de deploy para o contrato Vault
+│   └── .env            # Variáveis de ambiente (NÃO COMITAR)
+├── src/                # Contratos inteligentes principais
+│   ├── Vault.sol
+│   ├── Token.sol
+│   └── Counter.sol
+├── test/               # Testes automatizados em Solidity
+├── foundry.toml        # Configuração do Foundry
+├── remappings.txt      # Remapeamento de imports
+├── .gitignore
+└── README.md
 ```
 
-### Test
+## ��� Tecnologias utilizadas
 
-```shell
-$ forge test
+- [Foundry](https://book.getfoundry.sh/) – framework de desenvolvimento rápido para Ethereum
+- Solidity – linguagem para contratos inteligentes
+- Alchemy – node provider (usado via RPC)
+- GitHub – versionamento de código
+
+## ⚙️ Como rodar localmente
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
 ```
 
-### Format
+### 2. Instalar o Foundry
 
-```shell
-$ forge fmt
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
 ```
 
-### Gas Snapshots
+### 3. Criar o arquivo `.env`
 
-```shell
-$ forge snapshot
+Crie um arquivo `.env` dentro da pasta `/script/` com as seguintes variáveis:
+
+```
+PRIVATE_KEY=seu_private_key
+RPC_URL=https://seu-endpoint.alchemy.com/v2/...
+ETHERSCAN_API_KEY=sua_api_key
 ```
 
-### Anvil
+⚠️ **Importante:** Nunca compartilhe seu `.env` no GitHub.
 
-```shell
-$ anvil
+### 4. Rodar os testes
+
+```bash
+forge test -vvv
 ```
 
-### Deploy
+### 5. Deploy no Sepolia
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```bash
+forge script script/Vault.t.sol:VaultDeploy --rpc-url $RPC_URL --broadcast --verify --etherscan-api-key $ETHERSCAN_API_KEY
 ```
 
-### Cast
+---
 
-```shell
-$ cast <subcommand>
-```
+## ✅ Objetivos do Projeto
 
-### Help
+- Criar, testar e publicar contratos inteligentes
+- Usar deploy automatizado com scripts em Forge
+- Aprender a usar `.env` para proteger chaves sensíveis
+- Simular ambiente real com deploy na testnet Sepolia
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+---
+
+## ��� Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+---
+
+## ✍️ Autor
+
+**Pedro Nogueira**  
+[GitHub](https://github.com/pedroonog)
