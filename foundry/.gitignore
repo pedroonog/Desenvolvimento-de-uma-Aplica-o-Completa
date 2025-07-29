@@ -1,0 +1,7 @@
+# Ignorar arquivos sensíveis e pastas de build
+.env
+*.log
+*.tmp
+out/
+cache/
+node_modules/
